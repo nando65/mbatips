@@ -377,11 +377,12 @@
         <div class="modal-dialog modal-lg">
         <div class="modal-content">
           <div class="modal-body">
-
+            <% if !Story.first.nil? %>
             <% a=Story.first %>
             <% b = a.comments%>
             <% b.each do |c| %>
             <%= c.body %></br>
+            <% end %>
             <% end %>
             <!-- <img src="//placehold.it/1200x700/222?text=..." id="galleryImage" class="img-responsive" /> -->
             <p>
@@ -433,10 +434,12 @@
 
 
     <!-- <h1>Stories</h1> -->
+    <% if !@stories.nil? %>
 <% @stories.each do |story| %>
   <p>
   <% link_to(story.title, story.url, target: "_blank") %>  <% link_to("Show Page", story) %>
   </p>
+<% end %>
 <% end %>
   </body>
 </html>
